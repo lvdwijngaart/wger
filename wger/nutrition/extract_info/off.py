@@ -40,7 +40,7 @@ AMOUNT_AND_UNIT_PATTERN = re.compile(
 )
 
 
-def _extract_serving_size_data(serving_size: str) -> tuple[int | None, str | None, float | None]:
+def extract_serving_size_data(serving_size: str) -> tuple[int | None, str | None, float | None]:
     if not serving_size:
         return None, None, None
 
@@ -110,7 +110,8 @@ def extract_info_from_off(product_data: dict, language: int) -> IngredientData:
     fiber = product_data['nutriments'].get('fiber_100g', None)
     brand = product_data.get('brands', '')
     serving_size = product_data.get('serving_size', '')
-    serving_size_gram, serving_size_unit, serving_size_amount = _extract_serving_size_data(
+    
+    serving_size_gram, serving_size_unit, serving_size_amount = extract_serving_size_data(
         serving_size
     )
 
