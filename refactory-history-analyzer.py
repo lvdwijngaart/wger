@@ -24,7 +24,7 @@ def run_modularity_evolution_analysis(file_path):
 
     # 1. Initialize Counters
     module_counts = Counter()
-
+ 
     # 2. Process JSON (Extracting refactoring counts per module)
     for commit in data.get('commits', []):
         for ref in commit.get('refactorings', []):
